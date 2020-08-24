@@ -25,6 +25,9 @@ module.exports = {
 			},
 		]
 	},
+	resolve: {
+		extensions: ['.ts', '.js', '.json'],
+	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: 'src/index.html',
@@ -33,9 +36,11 @@ module.exports = {
 	],
 	devServer: {
 		host: '0.0.0.0',
-		port: 8082,
+		port: 8085,
 		contentBase: path.resolve(__dirname, 'dist'),
 		disableHostCheck: true,
 		compress: true,
+		hot: true,
+		overlay: true,
 	}
 }

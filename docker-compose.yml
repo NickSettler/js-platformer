@@ -9,4 +9,4 @@ services:
     volumes:
       - ./:/home/node/app
     ports:
-      - 8082:8082
+      - 8085:8085
