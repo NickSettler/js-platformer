@@ -1,5 +1,4 @@
 import {COLORS} from "./Colors";
-import {EntityOptions} from "./Entity";
 
 type ColorfulEntityOptions = {
     color?: COLORS | string;

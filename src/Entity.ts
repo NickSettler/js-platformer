@@ -1,5 +1,3 @@
-import {COLORS} from "./Colors";
-
 export type EntityOptions = {
     x: number;
     y: number;
