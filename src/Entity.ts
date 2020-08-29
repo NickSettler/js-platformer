@@ -33,9 +33,9 @@ export default class Entity implements EntityInterface {
         this._y = options.y;
     }
 
-    move(x: number, y: number, speed = 5): void {
-        this._deltaX = speed;
-        this._deltaY = speed;
+    move(x: number, y: number): void {
+        this._deltaX = (x - this._x) / 60;
+        this._deltaY = (y - this._y) / 60;
         this._finalX = x;
         this._finalY = y;
     }
@@ -44,12 +44,13 @@ export default class Entity implements EntityInterface {
         return this._x === x && this._x === y;
     }
 
-    update(time: number): void {
-        console.log(time);
-
-        if (this._x < this._finalX || this._y < this._finalY) {
-            console.log(this._x);
+    update(_time?: number): void {
+        if ((this._deltaX < 0 && this._x > this._finalX) ||
+            (this._deltaX > 0 && this._x < this._finalX)) {
             this._x += this._deltaX;
+        }
+        if ((this._deltaY < 0 && this._y > this._finalY) ||
+            (this._deltaY > 0 && this._y < this._finalY)) {
             this._y += this._deltaY;
         }
     }
