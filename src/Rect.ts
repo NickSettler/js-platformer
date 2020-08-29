@@ -73,10 +73,8 @@ export default class Rect extends Entity implements RectInterface {
     draw(context: CanvasRenderingContext2D): void {
         context.beginPath();
 
-        // @ts-ignore
         context.fillStyle = this._color;
 
-        // @ts-ignore
         if (this._isColorRandomized) {
             const [r, g, b] = [
                 Math.random() * 255,

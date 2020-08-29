@@ -1,6 +1,7 @@
 import Scene from "./Scene";
 import {COLORS} from "./Colors";
 import Rect from "./Rect";
+import {EntityLike} from "./types";
 
 export const globalErrorHandler: OnErrorEventHandlerNonNull =
     (
@@ -41,14 +42,12 @@ export const globalErrorHandler: OnErrorEventHandlerNonNull =
 export const canvasMouseHandler = (event: MouseEvent, scene: Scene) => {
     const {clientX: x, clientY: y} = event;
 
-    const e = scene.getEntityOnCoordinates(x, y);
+    const e = scene.getEntityOnCoordinates(x, y) as EntityLike;
 
     if (e) {
-        // @ts-ignore
         e.color = COLORS.GREEN;
         document.getElementById("main_canvas").style.cursor = "pointer";
     } else {
-        // @ts-ignore
         scene.entities.forEach(entity => entity.color = COLORS.RED);
         document.getElementById("main_canvas").style.cursor = "default";
     }
@@ -57,11 +56,10 @@ export const canvasMouseHandler = (event: MouseEvent, scene: Scene) => {
 export const canvasClickListener = (event: MouseEvent, scene: Scene) => {
     const {clientX: x, clientY: y} = event;
 
-    const e = scene.getEntityOnCoordinates(x, y) as Rect;
+    const e = scene.getEntityOnCoordinates(x, y) as EntityLike;
 
 
     if (e) {
-        // @ts-ignore
         e.isColorRandomized = !e.isColorRandomized;
     }
 };

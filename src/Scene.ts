@@ -1,5 +1,6 @@
 import Entity from "./Entity";
 import Rect from "./Rect";
+import {EntityLike} from "./types";
 
 interface SceneInterface {
     addEntity(entity: Entity): void;
@@ -26,12 +27,12 @@ const SceneDefaultOptions: SceneOptions = {
 export default class Scene implements SceneInterface {
     private readonly _name: string;
     private readonly _isMain: boolean;
-    private _entities: Array<Entity | Rect>;
+    private readonly _entities: Array<EntityLike>;
 
     constructor(options: SceneOptions = SceneDefaultOptions) {
         this._name = options.name;
         this._isMain = options.isMain;
-        this._entities = new Array<Entity>();
+        this._entities = new Array<EntityLike>();
     }
 
     clear(context: CanvasRenderingContext2D, w: number, h: number): void {
@@ -55,7 +56,7 @@ export default class Scene implements SceneInterface {
         context.closePath();
     }
 
-    addEntity(entity: Entity | Rect): void {
+    addEntity(entity: EntityLike): void {
         this._entities.push(entity);
     }
 
@@ -67,7 +68,7 @@ export default class Scene implements SceneInterface {
         return this._isMain;
     }
 
-    get entities(): Array<Entity | Rect> {
+    get entities(): Array<EntityLike> {
         return this._entities;
     }
 }
