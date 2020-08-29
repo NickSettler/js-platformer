@@ -1,10 +1,6 @@
 import {COLORS} from "./Colors";
 import {EntityOptions} from "./Entity";
 
-interface ColorfulEntityInterface {
-
-}
-
 type ColorfulEntityOptions = {
     color?: COLORS | string;
     isColorRandomized?: boolean;

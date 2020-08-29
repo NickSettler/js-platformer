@@ -1,18 +1,6 @@
 import Entity from "./Entity";
 import Rect from "./Rect";
 
-interface SceneInterface {
-    addEntity(entity: Entity): void;
-
-    clear(context: CanvasRenderingContext2D, w: number, h: number): void;
-
-    getEntityOnCoordinates(x: number, y: number): Rect | Entity
-
-    update(time: number): void;
-
-    draw(context: CanvasRenderingContext2D): void;
-}
-
 type SceneOptions = {
     name: string;
     isMain?: boolean;
@@ -23,7 +11,7 @@ const SceneDefaultOptions: SceneOptions = {
     isMain: false,
 };
 
-export default class Scene implements SceneInterface {
+export default class Scene {
     private readonly _name: string;
     private readonly _isMain: boolean;
     private _entities: Array<Entity | Rect>;

@@ -1,14 +1,6 @@
 import Scene from "./Scene";
 import {canvasClickListener, canvasMouseHandler} from "./functions";
 
-interface GameInterface {
-    drawScene(sceneName: string): void;
-
-    addScene(scene: Scene): void;
-
-    startProcess(): void;
-}
-
 type GameClassOptions = {
     width: number;
     height: number;
@@ -19,7 +11,7 @@ const GameDefaultOptions: GameClassOptions = {
     height: 600
 };
 
-class Game implements GameInterface {
+class Game {
     private readonly _canvas: HTMLCanvasElement;
     private _context: CanvasRenderingContext2D;
     private _width: number;
