@@ -38,7 +38,7 @@ export const globalErrorHandler: OnErrorEventHandlerNonNull =
         document.body.prepend(overlay);
     };
 
-export const canvasMouseHandler = (event: MouseEvent, scene: Scene) => {
+export const canvasMouseHandler = (event: MouseEvent, scene: Scene): void => {
     const {clientX: x, clientY: y} = event;
 
     const e = scene.getEntityOnCoordinates(x, y);
@@ -54,7 +54,7 @@ export const canvasMouseHandler = (event: MouseEvent, scene: Scene) => {
     }
 };
 
-export const canvasClickListener = (event: MouseEvent, scene: Scene) => {
+export const canvasClickListener = (event: MouseEvent, scene: Scene): void => {
     const {clientX: x, clientY: y} = event;
 
     const e = scene.getEntityOnCoordinates(x, y) as Rect;

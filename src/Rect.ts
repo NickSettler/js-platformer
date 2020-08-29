@@ -1,5 +1,4 @@
-import Entity, {EntityInterface, EntityOptions} from "./Entity";
-import {COLORS} from "./Colors";
+import Entity, {EntityOptions} from "./Entity";
 import ColorfulEntity from "./ColorfulEntity";
 import Helpers from "./Helpers";
 
