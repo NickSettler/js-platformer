@@ -32,11 +32,11 @@ const r1 = new Rect({
     w: 20, h: 30,
 });
 
-// @ts-ignore
 r1.color = COLORS.RED;
 
 setTimeout(() => {
     r1.resize(100, 100);
+    r1.move(10, r1.y);
 }, 1000);
 
 s1.addEntity(r1);
