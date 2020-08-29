@@ -1,15 +1,5 @@
 import {COLORS} from "./Colors";
 
-export interface EntityInterface {
-    move(x: number, y: number): void;
-
-    isOnCoordinates(x: number, y: number): boolean;
-
-    update(time: number): void;
-
-    draw(context: CanvasRenderingContext2D): void;
-}
-
 export type EntityOptions = {
     x: number;
     y: number;
@@ -20,7 +10,7 @@ const DefaultEntityOptions: EntityOptions = {
     y: 0,
 };
 
-export default class Entity implements EntityInterface {
+export default class Entity {
     protected _x: number;
     protected _y: number;
     private _deltaX: number;
