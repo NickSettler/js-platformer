@@ -3,9 +3,7 @@ import {COLORS} from "./Colors";
 import ColorfulEntity from "./ColorfulEntity";
 import Helpers from "./Helpers";
 
-interface RectInterface extends EntityInterface {
-    resize(w: number, h: number, steps: number): void;
-}
+export default interface Rect extends Entity, ColorfulEntity {}
 
 type RectOptions = EntityOptions & {
     w: number,
@@ -19,9 +17,9 @@ const DefaultRectOptions: RectOptions = {
     h: 40,
 };
 
-export default class Rect extends Entity implements RectInterface {
-    private _w: number;
-    private _h: number;
+export default class Rect extends Entity implements Rect {
+    protected _w: number;
+    protected _h: number;
     private _deltaW: number;
     private _deltaH: number;
     private _finalW: number;
@@ -43,8 +41,6 @@ export default class Rect extends Entity implements RectInterface {
         this._deltaH = (h - this._h) / 60;
         this._finalW = this._w + w;
         this._finalH = this._h + h;
-
-        console.log(this._finalW, this._finalH);
     }
 
     isOnCoordinates(x: number, y: number): boolean {
@@ -64,10 +60,7 @@ export default class Rect extends Entity implements RectInterface {
         if ((this._deltaW < 0 && this._w > this._finalW) ||
             (this._deltaW > 0 && this._w < this._finalW)) {
             this._w += this._deltaW;
-
         }
-
-        console.log(this._w, this._h);
     }
 
     draw(context: CanvasRenderingContext2D): void {
